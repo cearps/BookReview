@@ -1,3 +1,4 @@
+import generateStarDisplay from "../utils/generateStarDisplay";
 import { Book } from "../utils/types";
 
 function BookList(books: Book[]) {
@@ -5,7 +6,7 @@ function BookList(books: Book[]) {
     <>
       <div className="row">
         {books.map((book) => (
-          <BookListEntry {...book} />
+          <BookListEntry key={book.id} {...book} />
         ))}
       </div>
     </>
@@ -15,10 +16,10 @@ function BookList(books: Book[]) {
 function BookListEntry(book: Book) {
   return (
     <>
-      <div className="col-6 card">
+      <div className="col-4 card">
         <h2>{book.title}</h2>
         <p>{book.author}</p>
-        <p>{book.rating.grade} ⭐</p>
+        <p>{generateStarDisplay(book.rating.grade)}</p>
       </div>
     </>
   );
