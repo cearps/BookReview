@@ -1,11 +1,10 @@
 import "./assets/App.css";
-import Home from "./pages/home/index";
 
-function App() {
+function App({ children }: { children: React.ReactNode }) {
   return (
     <div className="container">
       <h1>Book List</h1>
-      <Home />
+      {children}
     </div>
   );
 }
