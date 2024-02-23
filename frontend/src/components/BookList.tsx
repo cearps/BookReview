@@ -2,15 +2,19 @@ import generateStarDisplay from "../utils/generateStarDisplay";
 import { Book } from "../utils/types";
 
 function BookList(books: Book[]) {
-  return (
-    <>
-      <div className="row">
-        {books.map((book) => (
-          <BookListEntry key={book.id} {...book} />
-        ))}
-      </div>
-    </>
-  );
+  try {
+    return (
+      <>
+        <div className="row">
+          {books.map((book) => (
+            <BookListEntry key={book.id} {...book} />
+          ))}
+        </div>
+      </>
+    );
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 function BookListEntry(book: Book) {
